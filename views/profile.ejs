@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title><%= title %></title>
+
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'>
+    <link rel="stylesheet" href="/stylesheets/ie10-viewport-bug-workaround.css" />
+    <link rel="stylesheet" href="/stylesheets/signin.css">
+
+
+    <script>
+      function noView(){
+        document.getElementById('MySelectMenu').style.display = 'none';
+      }
+
+      function showView(){
+        document.getElementById('MySelectMenu').style.display = 'block';
+      }
+
+    </script>
+  </head>
+
+  <body onload="noView()">
+    <a href="#" onclick="noView()">Menu 1</a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#" onclick="noView()">Menu 2</a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#" onclick="noView()">Menu 3</a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#" onclick="showView()">บริหารจัดการอุปกรณ์</a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/">Logout</a>
+    <br><br>
+    <iframe id="MySelectMenu" src=<%= link %> height="800" width="800"></iframe>
+    <hr>
+    <!--<iframe src="https://www.excise.go.th/excise2017/index.htm" style="width: 90%; height: 300px"
+    scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0">
+    </iframe>
+    -->
+  </body>
+</html>
