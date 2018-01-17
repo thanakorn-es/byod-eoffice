@@ -1,7 +1,7 @@
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var nodemailer = require("nodemailer");
 var router = express.Router();
 
 /* GET home page. */
@@ -9,7 +9,59 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'e-Office Signin' });
 });
 
+router.get('/email',function(req,res,next){
+  let mailConfig = {
+    host: '61.19.233.5',
+    port: 25,
+    auth: {
+        user: 'byod@excise.go.th',
+        pass: 'byod1234'
+    }
+  };
+  
+  let transporter = nodemailer.createTransport(mailConfig);
 
+  transporter.verify(function(error, success) {
+   if (error) {
+        res.send('error');
+   } else {
+        res.send('Server is ready to take our messages');
+   }
+  });
+  //transporter.sendMail(data[, callback])
+
+
+
+  /*
+  var smtp = {
+    host: '61.19.233.5', //set to your host name or ip
+    port: 25, //25, 465, 587 depend on your
+    secure: false, // use SSL
+    auth: {
+      user: 'byod@excise.go.th', //user account
+      pass: 'byod1234' //user password
+    }
+  };
+  var smtpTransport = mailer.createTransport(smtp);
+
+  var mail = {
+   from: 'byod@excise.go.th', //from email (option)
+   to: 'thanakorn.prs@gmail.com', //to email (require)
+   subject: "TEST", //subject
+   html: `<p>Test</p>`  //email body
+  }
+
+  smtpTransport.sendMail(mail, function(error, response){
+    smtpTransport.close();
+    if(error){
+      //error handler
+      res.send(error);
+    }else{
+      //success handler
+      res.send('send email success');
+    }
+  });*/
+});
 
 router.post('/auth', function(req,res,next){
   if (!req.body) return res.sendStatus(400)
