@@ -18,7 +18,7 @@ router.get('/email',function(req,res,next){
         pass: 'byod1234'
     }
   };
-  
+
   let transporter = nodemailer.createTransport(mailConfig);
 
   transporter.verify(function(error, success) {
@@ -69,8 +69,8 @@ router.post('/auth', function(req,res,next){
   var staffs = {
     "thanakorn.p" : {"nid": "1111111111111", "firstname": "thanakorn", "lastname": "piroonsith", "position": "51", "level": "3", "group": "501", "area": "12"},
     "tharathon.s": {"nid": "2222222222222", "firstname": "tharathon", "lastname": "sriyothee", "position": "51", "level": "5", "group": "325", "area": "51"},
+    "natthawat_a": {"nid": "2222222222223", "firstname": "natthawat", "lastname": "arunn", "position": "12", "level": "20", "group": "100", "area": "12"},
     /*"": {"firstname": "", "lastname": "", "position": "", "level": "", "group": "", "area": ""},
-    "": {"firstname": "", "lastname": "", "position": "", "level": "", "group": "", "area": ""},
     "": {"firstname": "", "lastname": "", "position": "", "level": "", "group": "", "area": ""},
     "": {"firstname": "", "lastname": "", "position": "", "level": "", "group": "", "area": ""},
     "": {"firstname": "", "lastname": "", "position": "", "level": "", "group": "", "area": ""},
