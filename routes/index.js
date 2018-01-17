@@ -9,6 +9,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'e-Office Signin' });
 });
 
+
+
 router.post('/auth', function(req,res,next){
   if (!req.body) return res.sendStatus(400)
 
